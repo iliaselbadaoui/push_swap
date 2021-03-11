@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_number.c                                        :+:      :+:    :+:   */
+/*   exec_rotate.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ielbadao <ielbadao@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/07 09:55:19 by ielbadao          #+#    #+#             */
-/*   Updated: 2021/03/07 15:35:53 by ielbadao         ###   ########.fr       */
+/*   Created: 2021/03/10 16:46:16 by ielbadao          #+#    #+#             */
+/*   Updated: 2021/03/10 16:58:52 by ielbadao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_bool			is_number(t_string expr)
-{	
-	while (*expr == ' ')
-		expr++;
-	if (*expr == '-')
-		expr++;
-	while (*expr)
+void			exec_rotate()
+{
+	int		top;
+	int		i;
+
+	top = peak(g_a, 0);
+	i = g_index[0];
+	println("ra\n");
+	while (i > 0)
 	{
-		if (*expr < '0' || *expr > '9')
-			return (false);
-		expr++;
+		g_a[i] = g_a[i - 1];
+		i--;
 	}
-	return (true);
+	g_a[0] = top;
 }

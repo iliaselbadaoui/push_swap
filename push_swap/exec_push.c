@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_number.c                                        :+:      :+:    :+:   */
+/*   exec_push.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ielbadao <ielbadao@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/07 09:55:19 by ielbadao          #+#    #+#             */
-/*   Updated: 2021/03/07 15:35:53 by ielbadao         ###   ########.fr       */
+/*   Created: 2021/03/08 22:10:26 by ielbadao          #+#    #+#             */
+/*   Updated: 2021/03/10 11:31:46 by ielbadao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_bool			is_number(t_string expr)
-{	
-	while (*expr == ' ')
-		expr++;
-	if (*expr == '-')
-		expr++;
-	while (*expr)
-	{
-		if (*expr < '0' || *expr > '9')
-			return (false);
-		expr++;
-	}
-	return (true);
+void			exec_push(int instruction)
+{
+	t_string	ops[2];
+
+	ops[0] = "pa\n\0";
+	ops[1] = "pb\n\0";
+	println(ops[instruction - 4]);
+	if (instruction == 4)
+		push(g_a, pop(g_b, 1), 0);
+	else if (instruction == 5)
+		push(g_b, pop(g_a, 0), 1);
 }

@@ -6,7 +6,7 @@
 /*   By: ielbadao <ielbadao@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/07 09:44:25 by ielbadao          #+#    #+#             */
-/*   Updated: 2021/03/07 13:50:36 by ielbadao         ###   ########.fr       */
+/*   Updated: 2021/03/10 12:17:11 by ielbadao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,34 +23,42 @@ static t_bool	print_err_free()
 static t_bool	error_handler(int argc, t_string *argv)
 {
 	long	holder;
+	int		argv_index;
 	int		index;
 
-	argv++;
 	g_a = (t_stack)malloc(sizeof(int) * (argc - 1));
 	g_b = (t_stack)malloc(sizeof(int) * (argc - 1));
-	g_index[0] = g_index[1] = argc - 2;
-	while (*argv)
+	g_size = argv_index = argc - 1;
+	while (argv_index >= 1)
 	{
 		index = 0;
-		if (!is_number(*argv))
+		if (!is_number(argv[argv_index]))
 			return (print_err_free());
-		if ((holder = ft_atol(*argv)) > INT32_MAX ||
-		(holder = ft_atol(*argv)) < INT32_MIN)
+		if ((holder = ft_atol(argv[argv_index])) > INT32_MAX ||
+		(holder = ft_atol(argv[argv_index])) < INT32_MIN)
 			return (print_err_free());
-		while (index < argc - 2)
+		while (index < g_size)
 			if (g_a[index++] == holder)
 				return (print_err_free());
 		push(g_a, holder, 0);
-		argv++;
+		argv_index--;
 	}
 	return (true);
 }
 
 int				main(int argc, t_string *argv)
 {
-	int i = argc - 2;
+	int i;
+	g_index[0] = g_index[1] = -1;
 	if (!error_handler(argc, argv))
 		return (1);
+	i = g_size - 1;
 	sort_stack();
+	i = g_index[0];
+	while (i >= 0)
+	{
+		printf("%d\n", g_a[i]);
+		i--;
+	}
 	return (0);
 }

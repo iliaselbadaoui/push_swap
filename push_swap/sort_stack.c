@@ -6,7 +6,7 @@
 /*   By: ielbadao <ielbadao@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/07 13:49:47 by ielbadao          #+#    #+#             */
-/*   Updated: 2021/03/07 14:00:01 by ielbadao         ###   ########.fr       */
+/*   Updated: 2021/03/10 17:40:54 by ielbadao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,8 @@
 
 void			sort_stack()
 {
-	// ready to swap between stacks
+	while (!is_sorted())
+	{
+		execute(get_instruction());
+	}
 }

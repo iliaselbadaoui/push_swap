@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_number.c                                        :+:      :+:    :+:   */
+/*   execute.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ielbadao <ielbadao@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/07 09:55:19 by ielbadao          #+#    #+#             */
-/*   Updated: 2021/03/07 15:35:53 by ielbadao         ###   ########.fr       */
+/*   Created: 2021/03/08 12:14:02 by ielbadao          #+#    #+#             */
+/*   Updated: 2021/03/10 17:13:03 by ielbadao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_bool			is_number(t_string expr)
-{	
-	while (*expr == ' ')
-		expr++;
-	if (*expr == '-')
-		expr++;
-	while (*expr)
-	{
-		if (*expr < '0' || *expr > '9')
-			return (false);
-		expr++;
-	}
-	return (true);
+void			execute(int instruction)
+{
+	if (instruction == 6)
+		exec_rotate();
+	if (instruction == 7)
+		exec_reverse_rotate();
+	else if (instruction >= 1 && instruction <= 3)
+		exec_swap(instruction);
+	else if (instruction == 4 || instruction == 5)
+		exec_push(instruction);
 }
