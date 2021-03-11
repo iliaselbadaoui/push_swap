@@ -6,7 +6,7 @@
 /*   By: ielbadao <ielbadao@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/07 09:44:25 by ielbadao          #+#    #+#             */
-/*   Updated: 2021/03/10 12:17:11 by ielbadao         ###   ########.fr       */
+/*   Updated: 2021/03/11 10:24:44 by ielbadao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,19 @@ static t_bool	error_handler(int argc, t_string *argv)
 	{
 		index = 0;
 		if (!is_number(argv[argv_index]))
-			return (print_err_free());
+			return (print_err_free());		
 		if ((holder = ft_atol(argv[argv_index])) > INT32_MAX ||
-		(holder = ft_atol(argv[argv_index])) < INT32_MIN)
+		holder < INT32_MIN)
 			return (print_err_free());
-		while (index < g_size)
-			if (g_a[index++] == holder)
-				return (print_err_free());
-		push(g_a, holder, 0);
+		if (g_index[0] != -1)
+		{
+			while (index <= g_index[0])
+				if (g_a[index++] == holder)
+					return (print_err_free());
+			push(g_a, holder, 0);
+		}
+		else
+			push(g_a, holder, 0);
 		argv_index--;
 	}
 	return (true);
