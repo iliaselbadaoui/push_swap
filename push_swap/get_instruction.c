@@ -6,7 +6,7 @@
 /*   By: ielbadao <ielbadao@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 12:34:22 by ielbadao          #+#    #+#             */
-/*   Updated: 2021/03/11 10:14:13 by ielbadao         ###   ########.fr       */
+/*   Updated: 2021/03/26 15:06:21 by ielbadao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@ int				get_instruction()
 {
 	int 	instruction;
 	
-	if ((instruction = to_swap()) > 0)
-		return (instruction);
-	else if ((instruction = to_rotate()) > 0)
+	if ((instruction = to_rotate()) > 0)
 		return (instruction);
 	else if ((instruction = to_reverse_rotate()) > 0)
+		return (instruction);
+	else if ((instruction = to_swap()) > 0)
 		return (instruction);
 	else if ((instruction = to_push()) > 0)
 		return (instruction);

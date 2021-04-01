@@ -6,7 +6,7 @@
 /*   By: ielbadao <ielbadao@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 12:14:02 by ielbadao          #+#    #+#             */
-/*   Updated: 2021/03/23 15:06:58 by ielbadao         ###   ########.fr       */
+/*   Updated: 2021/03/25 11:15:00 by ielbadao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void			execute(int instruction)
 {
 	if (instruction == 6)
 		exec_rotate();
-	if (instruction == 7)
+	else if (instruction == 7)
 		exec_reverse_rotate();
 	else if (instruction >= 1 && instruction <= 3)
 		exec_swap(instruction);

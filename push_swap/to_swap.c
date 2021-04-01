@@ -6,7 +6,7 @@
 /*   By: ielbadao <ielbadao@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 14:16:33 by ielbadao          #+#    #+#             */
-/*   Updated: 2021/03/09 13:28:24 by ielbadao         ###   ########.fr       */
+/*   Updated: 2021/03/26 15:01:51 by ielbadao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,26 @@ int				to_swap()
 {
 	int			top;
 	int			_peak;
+	int			sum;
 
+	sum = 0;
 	if (g_index[0] > 0)
 	{
-			top = pop(g_a, 0);
-			_peak = peak(g_a, 0);
-			push(g_a, top, 0);
-			if (top > _peak)
-				return (1);
+		top = pop(g_a, 0);
+		_peak = peak(g_a, 0);
+		push(g_a, top, 0);
+		if (top > _peak)
+			sum++;
 	}
-	return (0);
+	if (g_index[1] > 0)
+	{
+		top = pop(g_b, 1);
+		_peak = peak(g_b, 1);
+		push(g_b, top, 1);
+		if (top > _peak)
+			sum++;
+	}
+	if (sum == 2)
+		sum++;
+	return (sum);
 }
