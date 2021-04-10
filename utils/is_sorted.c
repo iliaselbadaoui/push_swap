@@ -6,13 +6,13 @@
 /*   By: ielbadao <ielbadao@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/10 22:26:08 by ielbadao          #+#    #+#             */
-/*   Updated: 2021/04/10 23:00:25 by ielbadao         ###   ########.fr       */
+/*   Updated: 2021/04/10 23:16:35 by ielbadao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
 
-t_bool		is_sorted(t_stack	*stack)
+t_bool	is_sorted(t_stack	*stack)
 {
 	int		min;
 

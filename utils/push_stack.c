@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.h                                            :+:      :+:    :+:   */
+/*   push_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ielbadao <ielbadao@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/10 22:24:45 by ielbadao          #+#    #+#             */
-/*   Updated: 2021/04/10 23:16:26 by ielbadao         ###   ########.fr       */
+/*   Created: 2021/04/10 23:17:21 by ielbadao          #+#    #+#             */
+/*   Updated: 2021/04/10 23:21:32 by ielbadao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTILS_H
-# define UTILS_H
-# include <stdlib.h>
-# include "../stack/stack.h"
+#include "utils.h"
 
-typedef enum e_bool
+t_bool	push_stack(t_stack **dest, t_stack **src)
 {
-	false,
-	true
-}				t_bool;
-t_bool		swap(t_stack **stack);
-t_bool		is_sorted(t_stack	*stack);
-#endif
+	t_stack	*tmp;
+
+	if (sizeof_stack(*src) == 0)
+		return (false);
+	tmp = pop(src);
+	push(dest, tmp->value);
+	free(tmp);
+	return (true);
+}
