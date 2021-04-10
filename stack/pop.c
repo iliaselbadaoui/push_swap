@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_instruction.c                                  :+:      :+:    :+:   */
+/*   pop.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ielbadao <ielbadao@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/08 12:34:22 by ielbadao          #+#    #+#             */
-/*   Updated: 2021/03/26 15:06:21 by ielbadao         ###   ########.fr       */
+/*   Created: 2021/04/10 22:05:28 by ielbadao          #+#    #+#             */
+/*   Updated: 2021/04/10 23:07:53 by ielbadao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "stack.h"
 
-int				get_instruction()
+t_stack	*pop(t_stack	**stack)
 {
-	int 	instruction;
-	
-	if ((instruction = to_rotate()) > 0)
-		return (instruction);
-	else if ((instruction = to_reverse_rotate()) > 0)
-		return (instruction);
-	else if ((instruction = to_swap()) > 0)
-		return (instruction);
-	else if ((instruction = to_push()) > 0)
-		return (instruction);
-	else
-		return (0);
+	t_stack		*ret;
+
+	ret = NULL;
+	if (*stack)
+	{
+		ret = *stack;
+		*stack = (*stack)->prev;
+	}
+	return (ret);
 }

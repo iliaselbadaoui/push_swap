@@ -1,18 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   peak.c                                             :+:      :+:    :+:   */
+/*   is_sorted.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ielbadao <ielbadao@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/07 16:04:24 by ielbadao          #+#    #+#             */
-/*   Updated: 2021/03/07 16:05:40 by ielbadao         ###   ########.fr       */
+/*   Created: 2021/04/10 22:26:08 by ielbadao          #+#    #+#             */
+/*   Updated: 2021/04/10 23:00:25 by ielbadao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "utils.h"
 
-int				peak(t_stack stack, int stack_number)
+t_bool		is_sorted(t_stack	*stack)
 {
-	return (stack[g_index[stack_number]]);
+	int		min;
+
+	min = stack->value;
+	stack = stack->prev;
+	while (stack)
+	{
+		if (min > stack->value)
+			return (false);
+		stack = stack->prev;
+	}
+	return (true);
 }

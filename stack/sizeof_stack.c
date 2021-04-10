@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   println.c                                          :+:      :+:    :+:   */
+/*   sizeof_stack.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ielbadao <ielbadao@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/07 11:02:45 by ielbadao          #+#    #+#             */
-/*   Updated: 2021/03/07 11:04:27 by ielbadao         ###   ########.fr       */
+/*   Created: 2021/04/10 23:08:40 by ielbadao          #+#    #+#             */
+/*   Updated: 2021/04/10 23:10:35 by ielbadao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "stack.h"
 
-void			println(t_string str)
+int	sizeof_stack(t_stack *stack)
 {
-	while (*str)
+	int		len;
+
+	len = 0;
+	while (stack)
 	{
-		write(1, str, 1);
-		str++;
+		len++;
+		stack = stack->prev;
 	}
+	return (len);
 }

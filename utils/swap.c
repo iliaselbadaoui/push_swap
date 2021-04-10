@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exec_push.c                                        :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ielbadao <ielbadao@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/08 22:10:26 by ielbadao          #+#    #+#             */
-/*   Updated: 2021/03/10 11:31:46 by ielbadao         ###   ########.fr       */
+/*   Created: 2021/04/10 23:00:44 by ielbadao          #+#    #+#             */
+/*   Updated: 2021/04/10 23:05:36 by ielbadao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "utils.h"
 
-void			exec_push(int instruction)
+void	swap(t_stack **stack)
 {
-	t_string	ops[2];
+	t_stack		*peak;
+	t_stack		*second_peak;
 
-	ops[0] = "pa\n\0";
-	ops[1] = "pb\n\0";
-	println(ops[instruction - 4]);
-	if (instruction == 4)
-		push(g_a, pop(g_b, 1), 0);
-	else if (instruction == 5)
-		push(g_b, pop(g_a, 0), 1);
+	peak = pop(stack);	
+	second_peak = pop(stack);
+	push(stack, peak->value);
+	push(stack, second_peak->value);
+	free(peak);
+	free(second_peak);
 }
