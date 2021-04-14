@@ -6,7 +6,7 @@
 /*   By: ielbadao <ielbadao@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/10 22:24:45 by ielbadao          #+#    #+#             */
-/*   Updated: 2021/04/13 19:10:00 by ielbadao         ###   ########.fr       */
+/*   Updated: 2021/04/14 11:54:04 by ielbadao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ t_bool		equals(t_string s1, t_string s2);
 t_bool		error_handler(int argc, t_string *argv, t_stack **a);
 t_bool		execute(t_string action, t_stack **dest, t_stack **src);
 t_bool		is_number(t_string nbr);
+t_bool		action_check(t_string action);
 long		ft_atol(char *number);
 int			sizeof_stack(t_stack *stack);
 void		print_fd(int fd, t_string str);
