@@ -6,20 +6,12 @@
 /*   By: ielbadao <ielbadao@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 10:28:29 by ielbadao          #+#    #+#             */
-/*   Updated: 2021/04/14 13:12:48 by ielbadao         ###   ########.fr       */
+/*   Updated: 2021/04/14 17:30:37 by ielbadao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "../utils/utils.h"
 #include <stdio.h>
-
-static void	print_stack(t_stack *stack)
-{
-	while (stack)
-	{
-		printf("%d\n", pop(&stack)->value);
-	}
-}
 
 int	main(int argc, t_string *argv)
 {
@@ -39,7 +31,6 @@ int	main(int argc, t_string *argv)
 			continue ;
 		}
 		execute(action, &a, &b);
-		print_stack(a);
 	}
 	if (is_sorted(a))
 		print_fd(1, "OK\n");

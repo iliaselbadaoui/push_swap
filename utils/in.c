@@ -6,11 +6,11 @@
 /*   By: ielbadao <ielbadao@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/17 13:32:12 by ielbadao          #+#    #+#             */
-/*   Updated: 2021/04/14 10:28:05 by ielbadao         ###   ########.fr       */
+/*   Updated: 2021/04/14 17:20:32 by ielbadao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "utils.h"
 
 void	fill_line(char **line, char *buffer)
 {

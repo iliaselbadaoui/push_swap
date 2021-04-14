@@ -6,11 +6,11 @@
 /*   By: ielbadao <ielbadao@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/17 13:32:25 by ielbadao          #+#    #+#             */
-/*   Updated: 2021/04/14 10:27:58 by ielbadao         ###   ########.fr       */
+/*   Updated: 2021/04/14 17:20:36 by ielbadao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "utils.h"
 
 char		*ft_strchr(const char *s, int c)
 {
