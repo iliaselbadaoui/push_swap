@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   is_number.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ielbadao <ielbadao@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/10 21:59:57 by ielbadao          #+#    #+#             */
-/*   Updated: 2021/04/10 22:12:38 by ielbadao         ###   ########.fr       */
+/*   Created: 2021/04/12 12:27:37 by ielbadao          #+#    #+#             */
+/*   Updated: 2021/04/13 18:28:29 by ielbadao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stack.h"
+#include "utils.h"
 
-void	push(t_stack **stack, int value)
+t_bool	is_number(t_string nbr)
 {
-	t_stack		*tmp;
-	if (!stack)
-		return ;
-	if (!*stack)
+	if (*nbr == '-' || *nbr == '+')
+		nbr++;
+	while (*nbr)
 	{
-		*stack = (t_stack *)malloc(sizeof(t_stack));
-		(*stack)->value = value;
-		(*stack)->prev = NULL;
-		return ;
+		if ((*nbr > '9' || *nbr < '0'))
+			return (false);
+		nbr++;
 	}
-	tmp = (t_stack *)malloc(sizeof(t_stack));
-	tmp->value = value;
-	tmp->prev = *stack;
-	*stack = tmp;
+	return (true);
 }

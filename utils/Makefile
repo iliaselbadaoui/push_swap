@@ -7,7 +7,7 @@ Name = utils.a
 all: $(Name)
 
 $(Name):
-	@$(compile) $(src) -Istack.h
+	@$(compile) $(src) -Iutils.h -I../stack/utils.h
 	@$(archive) $(Name) $(obj)
 clean:
 	@rm -rf $(obj)

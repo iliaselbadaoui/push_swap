@@ -1,40 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   sizeof_stack.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ielbadao <ielbadao@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/28 14:44:47 by ielbadao          #+#    #+#             */
-/*   Updated: 2021/03/07 12:17:25 by ielbadao         ###   ########.fr       */
+/*   Created: 2021/04/10 23:08:40 by ielbadao          #+#    #+#             */
+/*   Updated: 2021/04/13 10:20:40 by ielbadao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "utils.h"
 
-long			ft_atol(char *number)
+int	sizeof_stack(t_stack *stack)
 {
-	long		result;
-	long		sign;
+	int		len;
 
-	if (!number)
-		return (0);
-	result = 0;
-	while (*number == ' ')
-		number++;
-	sign = 1;
-	if (*number == '-')
+	len = 0;
+	while (stack)
 	{
-		number++;
-		sign = -1;
+		len++;
+		stack = stack->prev;
 	}
-	if (*number == '+')
-		number++;
-	while (*number >= '0' && *number <= '9')
-	{
-		result *= 10;
-		result += *number - '0';
-		number++;
-	}
-	return (result * sign);
+	return (len);
 }

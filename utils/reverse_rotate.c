@@ -6,7 +6,7 @@
 /*   By: ielbadao <ielbadao@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/11 10:04:41 by ielbadao          #+#    #+#             */
-/*   Updated: 2021/04/11 16:06:18 by ielbadao         ###   ########.fr       */
+/*   Updated: 2021/04/13 10:25:14 by ielbadao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_bool	reverse_rotate(t_stack **stack)
 	t_stack	*holder;
 	t_stack	*first;
 
-	if (sizeof_stack(stack) < 2)
+	if (sizeof_stack(*stack) < 2)
 		return (false);
 	tmp_stack = NULL;
 	while (*stack)
@@ -27,10 +27,10 @@ t_bool	reverse_rotate(t_stack **stack)
 		push(&tmp_stack, holder->value);
 		free(holder);
 	}
-	first = pop(tmp_stack);
+	first = pop(&tmp_stack);
 	while (tmp_stack)
 	{
-		holder = pop(tmp_stack);
+		holder = pop(&tmp_stack);
 		push(stack, holder->value);
 		free(holder);
 	}

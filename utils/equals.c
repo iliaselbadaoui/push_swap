@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack.h                                            :+:      :+:    :+:   */
+/*   equals.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ielbadao <ielbadao@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/10 21:56:58 by ielbadao          #+#    #+#             */
-/*   Updated: 2021/04/10 23:10:49 by ielbadao         ###   ########.fr       */
+/*   Created: 2021/04/11 16:40:31 by ielbadao          #+#    #+#             */
+/*   Updated: 2021/04/11 17:18:41 by ielbadao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STACK_H
-# define STACK_H
-# include <stdlib.h>
+#include "utils.h"
 
-typedef struct	s_stack
+
+t_bool	equals(t_string s1, t_string s2)
 {
-	int				value;
-	struct s_stack	*prev;
-}				t_stack;
-
-void			push(t_stack **stack, int value);
-t_stack			*pop(t_stack	**stack);
-int				sizeof_stack(t_stack *stack);
-#endif
+	if (!s1 || !s2)
+		return (false);
+	if (s1 == s2)
+		return (true);
+	while (*s1 && *s2)
+	{
+		if (*s1 != *s2)
+			return (false);
+		s1++;
+		s2++;
+	}
+	if (*s1 != *s2)
+		return (false);
+	return (true);
+}

@@ -1,40 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ielbadao <ielbadao@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/10 23:25:09 by ielbadao          #+#    #+#             */
-/*   Updated: 2021/04/13 10:25:50 by ielbadao         ###   ########.fr       */
+/*   Created: 2021/04/10 21:59:57 by ielbadao          #+#    #+#             */
+/*   Updated: 2021/04/13 10:20:40 by ielbadao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
 
-t_bool	rotate(t_stack	**stack)
+void	push(t_stack **stack, int value)
 {
-	t_stack	*tmp_stack;
-	t_stack	*holder;
-	t_stack	*first;
-
-	if (sizeof_stack(*stack) < 2)
-		return (false);
-	first = pop(stack);
-	tmp_stack = NULL;
-	while (*stack)
+	t_stack		*tmp;
+	if (!stack)
+		return ;
+	if (!*stack)
 	{
-		holder = pop(stack);
-		push(&tmp_stack, holder->value);
-		free(holder);
+		*stack = (t_stack *)malloc(sizeof(t_stack));
+		(*stack)->value = value;
+		(*stack)->prev = NULL;
+		return ;
 	}
-	push(stack, first->value);
-	free(first);
-	while (tmp_stack)
-	{
-		holder = pop(&tmp_stack);
-		push(stack, holder->value);
-		free(holder);
-	}
-	return (true);
+	tmp = (t_stack *)malloc(sizeof(t_stack));
+	tmp->value = value;
+	tmp->prev = *stack;
+	*stack = tmp;
 }
