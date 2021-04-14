@@ -6,13 +6,14 @@
 /*   By: ielbadao <ielbadao@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/10 22:24:45 by ielbadao          #+#    #+#             */
-/*   Updated: 2021/04/14 11:54:04 by ielbadao         ###   ########.fr       */
+/*   Updated: 2021/04/14 15:13:57 by ielbadao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef UTILS_H
 # define UTILS_H
 # include <stdlib.h>
+# include <stdio.h>
 # include <unistd.h>
 
 typedef char	*t_string;
@@ -32,7 +33,7 @@ t_bool		rotate(t_stack	**stack);
 t_bool		reverse_rotate(t_stack **stack);
 t_bool		is_sorted(t_stack	*stack);
 t_bool		equals(t_string s1, t_string s2);
-t_bool		error_handler(int argc, t_string *argv, t_stack **a);
+t_bool		error_handler(int argc, t_string *argv, t_stack **a, t_stack **goal);
 t_bool		execute(t_string action, t_stack **dest, t_stack **src);
 t_bool		is_number(t_string nbr);
 t_bool		action_check(t_string action);

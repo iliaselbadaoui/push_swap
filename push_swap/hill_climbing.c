@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   hill_climbing.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ielbadao <ielbadao@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/07 09:44:25 by ielbadao          #+#    #+#             */
-/*   Updated: 2021/04/14 15:27:43 by ielbadao         ###   ########.fr       */
+/*   Created: 2021/04/14 12:58:59 by ielbadao          #+#    #+#             */
+/*   Updated: 2021/04/14 14:55:40 by ielbadao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, t_string *argv)
+void	hill_climbing(t_stack **a, t_stack **b, t_stack *goal)
 {
-	t_stack		*a;
-	t_stack		*b;
-	t_stack		*g;
-
-	a = NULL;
-	b = NULL;
-	g = NULL;
-	if (!error_handler(argc, argv, &a, &g))
-		return (1);
-	hill_climbing(&a, &b, g);
-	return (0);
+	printf("MD: %d\n", manhattan_distance(*a, *b, goal));
 }

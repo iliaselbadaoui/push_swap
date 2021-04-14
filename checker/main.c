@@ -6,7 +6,7 @@
 /*   By: ielbadao <ielbadao@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 10:28:29 by ielbadao          #+#    #+#             */
-/*   Updated: 2021/04/14 12:29:03 by ielbadao         ###   ########.fr       */
+/*   Updated: 2021/04/14 13:12:48 by ielbadao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	main(int argc, t_string *argv)
 
 	a = NULL;
 	b = NULL;
-	if (!error_handler(argc, argv, &a))
+	if (!error_handler(argc, argv, &a, NULL))
 		return (1);
 	while (in(0, &action))
 	{
