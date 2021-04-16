@@ -6,7 +6,7 @@
 /*   By: ielbadao <ielbadao@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 13:01:29 by ielbadao          #+#    #+#             */
-/*   Updated: 2021/04/14 20:11:55 by ielbadao         ###   ########.fr       */
+/*   Updated: 2021/04/15 16:59:31 by ielbadao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	manhattan_distance(t_stack *a, t_stack *b, t_stack *goal)
 	int 	pos_goal;
 	t_stack	*goal_dup;
 	
-	dist = 0;
+	dist = sizeof_stack(b);
 	pos_a = 0;
 	while (b)
 		push(&a, pop(&b)->value);

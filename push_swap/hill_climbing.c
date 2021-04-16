@@ -6,7 +6,7 @@
 /*   By: ielbadao <ielbadao@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 12:58:59 by ielbadao          #+#    #+#             */
-/*   Updated: 2021/04/14 20:30:03 by ielbadao         ###   ########.fr       */
+/*   Updated: 2021/04/15 17:43:11 by ielbadao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,16 +50,27 @@ void	hill_climbing(t_stack **a, t_stack **b, t_stack *goal)
 	t_optimum	optimum;
 	int			manhattan;
 	int			i;
+	int			found;
 
 	fill_actions(&actions);
+	optimum.action = NULL;
 	while (!is_sorted(*a))
 	{
 		i = 0;
 		optimum.md = manhattan_distance(*a, *b, goal);
+		optimum.action = NULL;
+		found = 0;
 		while (actions[i])
 		{
 			manhattan = try_action(actions[i], *a, *b, goal);
-			if (manhattan <= optimum.md)
+			printf("Action: %s, MD : %d\n", actions[i], manhattan);
+			if (manhattan <= optimum.md && !found)
+			{
+				optimum.md = manhattan;
+				optimum.action = actions[i];
+				found = 1;
+			}
+			if (manhattan < optimum.md && found)
 			{
 				optimum.md = manhattan;
 				optimum.action = actions[i];
@@ -67,7 +78,7 @@ void	hill_climbing(t_stack **a, t_stack **b, t_stack *goal)
 			i++;
 		}
 		execute(optimum.action, a, b);
-		print_fd(1, optimum.action);
-		print_fd(1, "\n");
+		// print_fd(1, optimum.action);
+		// print_fd(1, "\n");
 	}
 }
