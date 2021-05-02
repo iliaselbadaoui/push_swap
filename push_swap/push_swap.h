@@ -6,7 +6,7 @@
 /*   By: ielbadao <ielbadao@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/10 21:55:25 by ielbadao          #+#    #+#             */
-/*   Updated: 2021/04/14 17:05:16 by ielbadao         ###   ########.fr       */
+/*   Updated: 2021/04/17 20:55:31 by ielbadao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,6 @@ typedef struct s_optimum
 }			t_optimum;
 
 
-int			manhattan_distance(t_stack *a, t_stack *b, t_stack *goal);
-void		hill_climbing(t_stack **a, t_stack **b, t_stack *goal);
+int			manhattan_distance(t_stack *a);
+void		hill_climbing(t_stack **a, t_stack **b);
 #endif

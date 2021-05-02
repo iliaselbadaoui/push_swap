@@ -6,7 +6,7 @@
 /*   By: ielbadao <ielbadao@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/10 22:24:45 by ielbadao          #+#    #+#             */
-/*   Updated: 2021/04/14 17:19:00 by ielbadao         ###   ########.fr       */
+/*   Updated: 2021/04/16 12:10:42 by ielbadao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ t_bool		rotate(t_stack	**stack);
 t_bool		reverse_rotate(t_stack **stack);
 t_bool		is_sorted(t_stack	*stack);
 t_bool		equals(t_string s1, t_string s2);
-t_bool		error_handler(int argc, t_string *argv, t_stack **a, t_stack **goal);
+t_bool		error_handler(int argc, t_string *argv, t_stack **a);
 t_bool		execute(t_string action, t_stack **dest, t_stack **src);
 t_bool		is_number(t_string nbr);
 t_bool		action_check(t_string action);
@@ -55,4 +55,5 @@ void		ft_free(char **p);
 void		fill_line(char **line, char *buffer);
 t_stack		*pop(t_stack	**stack);
 t_stack		*stack_dup(t_stack *stack);
+t_stack		*get_goal(t_stack *stack);
 #endif

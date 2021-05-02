@@ -6,7 +6,7 @@
 /*   By: ielbadao <ielbadao@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 13:01:29 by ielbadao          #+#    #+#             */
-/*   Updated: 2021/04/15 16:59:31 by ielbadao         ###   ########.fr       */
+/*   Updated: 2021/04/18 21:02:17 by ielbadao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int abs_val(int n)
 	return (n);
 }
 
-int	manhattan_distance(t_stack *a, t_stack *b, t_stack *goal)
+int	manhattan_distance(t_stack *a)
 {
 	int		dist;
 	int		holder;
@@ -27,15 +27,13 @@ int	manhattan_distance(t_stack *a, t_stack *b, t_stack *goal)
 	int 	pos_goal;
 	t_stack	*goal_dup;
 	
-	dist = sizeof_stack(b);
+	dist = 0;
 	pos_a = 0;
-	while (b)
-		push(&a, pop(&b)->value);
 	while (a)
 	{
 		holder = pop(&a)->value;
 		pos_goal = 0;
-		goal_dup = stack_dup(goal);
+		goal_dup = get_goal(a);
 		while (goal_dup)
 		{
 			if (holder == goal_dup->value)
